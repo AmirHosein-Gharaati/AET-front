@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { handleSignUp } from "./service";
 import {
   TextField,
@@ -12,14 +12,24 @@ import {
 import { useDispatch } from "react-redux";
 import { signUp } from "../../store/reducers/authReducer";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store/store";
 
 export default function SignUp() {
   const dispatch = useDispatch();
   const naviagte = useNavigate();
 
+  const authToken = useSelector((state: RootState) => state.auth.token);
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  useEffect(() => {
+    if (authToken) {
+      naviagte("/dashboard");
+    }
+  }, [authToken, naviagte]);
 
   async function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
