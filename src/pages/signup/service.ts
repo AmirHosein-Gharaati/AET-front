@@ -1,5 +1,5 @@
 import { axiosInstance as axios } from "../../utils/axios";
-import { SingUpRequest, SignUpResponse } from "./models";
+import { SingUpRequest, SignUpResponse } from "./type";
 
 export async function handleSignUp(
   username: string,
