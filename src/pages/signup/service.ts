@@ -1,6 +1,8 @@
 import { axiosInstance as axios } from "../../utils/axios";
 import { SingUpRequest, SignUpResponse } from "./type";
 
+const signUpUrl = "/auth/signup";
+
 export async function handleSignUp(
   username: string,
   password: string,
@@ -11,8 +13,6 @@ export async function handleSignUp(
     password: password,
     confirmPassword: confirmPassword,
   };
-
-  const signUpUrl = "/auth/signup";
 
   try {
     const res = await axios.post<SignUpResponse>(signUpUrl, request);
