@@ -10,7 +10,7 @@ import {
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { handleLogin } from "./service";
+import { handleLogin } from "./loginService";
 import { login } from "../../store/reducers/authReducer";
 import { RootState } from "../../store/store";
 

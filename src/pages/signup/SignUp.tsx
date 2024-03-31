@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { handleSignUp } from "./service";
+import { handleSignUp } from "./signUpService";
 import {
   TextField,
   Box,

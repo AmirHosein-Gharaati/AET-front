@@ -1,5 +1,5 @@
 import { axiosInstance as axios } from "../../utils/axios";
-import { LoginRequest, LoginResponse } from "./type";
+import { LoginRequest, LoginResponse } from "./loginTypes";
 
 const loginUrl = "/auth/login";
 

@@ -1,5 +1,5 @@
 import { axiosInstance as axios } from "../../utils/axios";
-import { SingUpRequest, SignUpResponse } from "./type";
+import { SingUpRequest, SignUpResponse } from "./signUpTypes";
 
 const signUpUrl = "/auth/signup";
 
