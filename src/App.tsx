@@ -7,6 +7,7 @@ import SignUp from "./pages/signup/SignUp";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/dashboard/Home";
 import { PersistGate } from "redux-persist/integration/react";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <PersistGate persistor={persistor}>
             <Routes>
               <Route path="/signup" element={<SignUp />} />
+              <Route path="/login" element={<Login />} />
               <Route path="/dashboard" element={<Home />} />
               <Route path="/*" element={<NotFound />} />
             </Routes>
