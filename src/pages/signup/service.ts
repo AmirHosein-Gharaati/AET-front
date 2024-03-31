@@ -1,16 +1,11 @@
-import { AxiosError } from "axios";
-import { ErrorResponse } from "../../models/error";
 import { axiosInstance as axios } from "../../utils/axios";
 import { SingUpRequest, SignUpResponse } from "./models";
 
-export function handleSignUp(
-  e: React.FormEvent,
+export async function handleSignUp(
   username: string,
   password: string,
   confirmPassword: string
 ) {
-  e.preventDefault();
-
   const request: SingUpRequest = {
     username: username,
     password: password,
@@ -19,14 +14,10 @@ export function handleSignUp(
 
   const signUpUrl = "/auth/signup";
 
-  axios
-    .post<SignUpResponse>(signUpUrl, request)
-    .then((res) => {
-      console.log(res.data);
-    })
-    .catch((err: AxiosError<ErrorResponse>) => {
-      console.error(`error at '${signUpUrl}'`);
-
-      console.log(err.response?.data);
-    });
+  try {
+    const res = await axios.post<SignUpResponse>(signUpUrl, request);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
 }

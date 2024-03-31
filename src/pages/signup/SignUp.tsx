@@ -9,11 +9,26 @@ import {
   Button,
   Link,
 } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { signUp } from "../../store/reducers/authReducer";
+import { useNavigate } from "react-router-dom";
 
 export default function SignUp() {
+  const dispatch = useDispatch();
+  const naviagte = useNavigate();
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  async function handleFormSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    const response = await handleSignUp(username, password, confirmPassword);
+    if (response) {
+      dispatch(signUp(response));
+      naviagte("/dashboard");
+    }
+  }
 
   return (
     <>
@@ -31,9 +46,7 @@ export default function SignUp() {
           </Typography>
           <Box
             component="form"
-            onSubmit={(e) =>
-              handleSignUp(e, username, password, confirmPassword)
-            }
+            onSubmit={(e) => handleFormSubmit(e)}
             noValidate
             sx={{ mt: 3 }}
           >
