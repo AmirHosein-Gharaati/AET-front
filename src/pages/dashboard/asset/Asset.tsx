@@ -24,7 +24,11 @@ export default function Asset() {
 
         <OutlinedInput
           placeholder="Search"
-          sx={{ backgroundColor: "white" }}
+          sx={{
+            backgroundColor: "white",
+            border: "1px solid #E9E9E9",
+            borderRadius: "10px",
+          }}
           fullWidth
           startAdornment={
             <InputAdornment position="start">
