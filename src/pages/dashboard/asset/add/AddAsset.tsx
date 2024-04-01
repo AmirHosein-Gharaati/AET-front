@@ -6,7 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import InputFileUpload from "../../../components/InputFileUploadCustom";
+import InputFileUpload from "../../../../components/InputFileUploadCustom";
 
 export default function AddAsset() {
   const navigate = useNavigate();
