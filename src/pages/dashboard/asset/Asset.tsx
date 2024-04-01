@@ -18,12 +18,7 @@ export default function Asset() {
           alignItems: "center",
         }}
       >
-        <Typography
-          component="h1"
-          fontWeight={600}
-          fontSize={28}
-          marginBottom={2}
-        >
+        <Typography component="h1" fontWeight={600} fontSize={28} marginY={2}>
           Asset
         </Typography>
 
