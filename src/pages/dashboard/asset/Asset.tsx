@@ -79,6 +79,7 @@ export default function Asset() {
               name={asset.name}
               currencyBuy={asset.currencyTo}
               totalAmount={asset.totalAmout}
+              imageId={asset.imageId}
             />
           ))}
         </Box>

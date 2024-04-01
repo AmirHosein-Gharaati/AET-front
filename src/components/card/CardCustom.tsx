@@ -2,14 +2,25 @@ import { Avatar, Box, Button, Typography } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
+import { baseURL } from "../../utils/axios";
+import defaultCategory from "../../assets/images/home-category.png";
+
 export interface CardProps {
   id: string;
   name: string;
+  imageId?: string;
   totalAmount: number;
   currencyBuy: string;
 }
 
 export default function CardCustom(props: CardProps) {
+  function getAssetImageUrl(imageId: string | undefined) {
+    if (imageId) {
+      return `${baseURL}/images/${imageId}`;
+    }
+    return defaultCategory;
+  }
+
   return (
     <Box
       sx={{
@@ -31,7 +42,7 @@ export default function CardCustom(props: CardProps) {
       >
         <Avatar
           sx={{ width: 48, height: 48, marginLeft: "8px" }}
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Bitcoin.svg/1200px-Bitcoin.svg.png"
+          src={getAssetImageUrl(props.imageId)}
         />
       </Box>
 
