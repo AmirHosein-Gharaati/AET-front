@@ -19,7 +19,7 @@ export default function Asset() {
         }}
       >
         <Typography component="h1" fontWeight={600} fontSize={28} marginY={2}>
-          Asset
+          Assets
         </Typography>
 
         <OutlinedInput
