@@ -1,8 +1,10 @@
-export interface AssetMinimalResponse {
+export interface AssetFractionResponse {
   id: string;
   name: string;
   imageId?: string;
-  totalAmout: number;
+  totalAmount: number;
+  totalCost: number;
+  currentPrice: number;
   currencyFrom: string;
   currencyTo: string;
 }

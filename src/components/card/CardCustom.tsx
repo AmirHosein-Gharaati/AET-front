@@ -1,24 +1,33 @@
 import { Avatar, Box, Button, Typography } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
+import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import { baseURL } from "../../utils/axios";
-import defaultCategory from "../../assets/images/home-category.png";
+import { calculateGainLossByPercent } from "./cardService";
+import defaultCategoryImage from "../../assets/images/home-category.png";
 
 export interface CardProps {
   id: string;
   name: string;
   imageId?: string;
   totalAmount: number;
+  totalCost: number;
+  currentPrice: number;
   currencyBuy: string;
 }
 
 export default function CardCustom(props: CardProps) {
+  const gainOrLoss = calculateGainLossByPercent(
+    props.totalAmount,
+    props.totalCost,
+    props.currentPrice
+  );
+  const isGain: boolean = gainOrLoss >= 0;
+  const gainOrLossColor = isGain ? "green" : "red";
+
   function getAssetImageUrl(imageId: string | undefined) {
-    if (imageId) {
-      return `${baseURL}/images/${imageId}`;
-    }
-    return defaultCategory;
+    return imageId ? `${baseURL}/images/${imageId}` : defaultCategoryImage;
   }
 
   return (
@@ -69,12 +78,13 @@ export default function CardCustom(props: CardProps) {
             sx={{
               display: "flex",
               alignItems: "center",
-              color: "green",
+              color: gainOrLossColor,
             }}
           >
-            <ArrowDropUpIcon />
+            {isGain ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />}
+
             <Typography component="span" fontSize={14}>
-              9.47%
+              {gainOrLoss}%
             </Typography>
           </Box>
         </Box>

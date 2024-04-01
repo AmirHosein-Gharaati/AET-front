@@ -11,7 +11,7 @@ import { Search } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { AssetMinimalResponse } from "./assetTypes";
+import { AssetFractionResponse } from "./assetTypes";
 import { useSelector } from "react-redux";
 import { RootState } from "../../../store/store";
 import { getAssets } from "./assetService";
@@ -20,7 +20,7 @@ export default function Asset() {
   const navigate = useNavigate();
   const token = useSelector((state: RootState) => state.auth.token);
 
-  const [assets, setAssets] = useState<AssetMinimalResponse[]>([]);
+  const [assets, setAssets] = useState<AssetFractionResponse[]>([]);
 
   useEffect(() => {
     (async function handleGetAssets() {
@@ -78,7 +78,9 @@ export default function Asset() {
               key={asset.id}
               name={asset.name}
               currencyBuy={asset.currencyTo}
-              totalAmount={asset.totalAmout}
+              totalAmount={asset.totalAmount}
+              totalCost={asset.totalCost}
+              currentPrice={asset.currentPrice}
               imageId={asset.imageId}
             />
           ))}
