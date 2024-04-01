@@ -13,6 +13,7 @@ export default function CardCustom() {
         paddingY: "8px",
         marginY: "8px",
         backgroundColor: "white",
+        boxShadow: " 0px 4px 4px 0px #E3E3E340",
       }}
     >
       <Box
