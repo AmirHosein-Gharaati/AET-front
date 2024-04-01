@@ -2,7 +2,14 @@ import { Avatar, Box, Button, Typography } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 
-export default function CardCustom() {
+export interface CardProps {
+  id: string;
+  name: string;
+  totalAmount: number;
+  currencyBuy: string;
+}
+
+export default function CardCustom(props: CardProps) {
   return (
     <Box
       sx={{
@@ -45,7 +52,7 @@ export default function CardCustom() {
           }}
         >
           <Typography component="h2" fontWeight={600}>
-            Bitcoin
+            {props.name}
           </Typography>
           <Box
             sx={{
@@ -62,7 +69,7 @@ export default function CardCustom() {
         </Box>
         <Box>
           <Typography component="span" fontSize={14}>
-            10.8999 BTC
+            {props.totalAmount} {props.currencyBuy}
           </Typography>
         </Box>
       </Box>
