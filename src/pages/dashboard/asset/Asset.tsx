@@ -1,12 +1,14 @@
 import {
   Box,
   Container,
+  Fab,
   InputAdornment,
   OutlinedInput,
   Typography,
 } from "@mui/material";
 import CardCustom from "../../../components/CardCustom";
 import { Search } from "@mui/icons-material";
+import AddIcon from "@mui/icons-material/Add";
 
 export default function Asset() {
   return (
@@ -47,8 +49,15 @@ export default function Asset() {
           }}
         >
           <CardCustom />
-          <CardCustom />
         </Box>
+
+        <Fab
+          color="primary"
+          aria-label="add"
+          sx={{ position: "absolute", bottom: 16, right: 16 }}
+        >
+          <AddIcon />
+        </Fab>
       </Box>
     </Container>
   );
