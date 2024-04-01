@@ -6,6 +6,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import InputFileUpload from "../../../components/InputFileUploadCustom";
 
 export default function AddAsset() {
   const navigate = useNavigate();
@@ -27,6 +28,8 @@ export default function AddAsset() {
           Add Asset
         </Typography>
 
+        <InputFileUpload />
+
         <Box>
           <Box width="100%" marginY="12px">
             <Typography display="flex">
@@ -40,7 +43,6 @@ export default function AddAsset() {
               fullWidth
               sx={{
                 backgroundColor: "white",
-                border: "1px solid #E9E9E9",
                 borderRadius: "10px",
               }}
             />
@@ -58,7 +60,6 @@ export default function AddAsset() {
               fullWidth
               sx={{
                 backgroundColor: "white",
-                border: "1px solid #E9E9E9",
                 borderRadius: "10px",
               }}
             />
@@ -77,7 +78,6 @@ export default function AddAsset() {
                 fullWidth
                 sx={{
                   backgroundColor: "white",
-                  border: "1px solid #E9E9E9",
                   borderRadius: "10px",
                 }}
               />
@@ -97,7 +97,6 @@ export default function AddAsset() {
                 fullWidth
                 sx={{
                   backgroundColor: "white",
-                  border: "1px solid #E9E9E9",
                   borderRadius: "10px",
                 }}
               />
