@@ -9,8 +9,15 @@ import {
 import CardCustom from "../../../components/CardCustom";
 import { Search } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
+import { useNavigate } from "react-router-dom";
 
 export default function Asset() {
+  const navigate = useNavigate();
+
+  function handleAddAsset() {
+    navigate("/dashboard/asset/add");
+  }
+
   return (
     <Container>
       <Box
@@ -54,6 +61,7 @@ export default function Asset() {
         <Fab
           color="primary"
           aria-label="add"
+          onClick={handleAddAsset}
           sx={{ position: "absolute", bottom: 16, right: 16 }}
         >
           <AddIcon />
