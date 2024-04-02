@@ -3,9 +3,9 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
-import { baseURL } from "../../utils/axios";
+import { baseURL } from "@/utils/axios";
 import { calculateGainLossByPercent } from "./cardService";
-import defaultCategoryImage from "../../assets/images/home-category.png";
+import defaultCategoryImage from "@/assets/images/home-category.png";
 
 export interface CardProps {
   id: string;

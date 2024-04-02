@@ -6,14 +6,14 @@ import {
   OutlinedInput,
   Typography,
 } from "@mui/material";
-import CardCustom from "../../../components/card/CardCustom";
+import CardCustom from "@/components/card/CardCustom";
 import { Search } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { AssetFractionResponse } from "./assetTypes";
 import { useSelector } from "react-redux";
-import { RootState } from "../../../store/store";
+import { RootState } from "@/store/store";
 import { getAssets } from "./assetService";
 
 export default function Asset() {

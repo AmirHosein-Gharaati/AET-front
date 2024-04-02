@@ -10,10 +10,10 @@ import {
   Link,
 } from "@mui/material";
 import { useDispatch } from "react-redux";
-import { signUp } from "../../store/reducers/authReducer";
+import { signUp } from "@/store/reducers/authReducer";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from "@/store/store";
 
 export default function SignUp() {
   const dispatch = useDispatch();

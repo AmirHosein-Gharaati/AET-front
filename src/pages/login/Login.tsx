@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { handleLogin } from "./loginService";
-import { login } from "../../store/reducers/authReducer";
-import { RootState } from "../../store/store";
+import { login } from "@/store/reducers/authReducer";
+import { RootState } from "@/store/store";
 
 export default function Login() {
   const dispatch = useDispatch();

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { RootState } from "../../store/store";
+import { RootState } from "@/store/store";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { sendWhoami } from "./homeService";
-import { whoami } from "../../store/reducers/authReducer";
+import { whoami } from "@/store/reducers/authReducer";
 
 export default function Home() {
   const navigate = useNavigate();
