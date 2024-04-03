@@ -37,7 +37,7 @@ export default function Asset() {
         alignItems: "center",
       }}
     >
-      <PageHeader title="Assets" />
+      <PageHeader backPath="/dashboard" title="Assets" />
 
       <OutlinedInput
         placeholder="Search"
