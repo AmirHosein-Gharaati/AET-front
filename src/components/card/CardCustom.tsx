@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Avatar, Box, Button, Typography } from "@mui/material";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
@@ -6,6 +6,7 @@ import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 import { baseURL } from "@/utils/axios";
 import { calculateGainLossByPercent } from "./cardService";
 import defaultCategoryImage from "@/assets/images/home-category.png";
+import { useNavigate } from "react-router-dom";
 
 export interface CardProps {
   id: string;
@@ -18,6 +19,8 @@ export interface CardProps {
 }
 
 export default function CardCustom(props: CardProps) {
+  const navigate = useNavigate();
+
   const gainOrLoss = calculateGainLossByPercent(
     props.totalAmount,
     props.totalCost,
@@ -30,8 +33,13 @@ export default function CardCustom(props: CardProps) {
     return imageId ? `${baseURL}/images/${imageId}` : defaultCategoryImage;
   }
 
+  function handleAssetDetail(id: string) {
+    navigate(`/dashboard/asset/${id}`);
+  }
+
   return (
     <Box
+      onClick={() => handleAssetDetail(props.id)}
       sx={{
         display: "flex",
         flexDirection: "row",
@@ -95,15 +103,9 @@ export default function CardCustom(props: CardProps) {
         </Box>
       </Box>
 
-      <Box
-        display="flex"
-        alignItems="center"
-        justifyContent="center"
-        color="#989898"
-        paddingX={2}
-      >
+      <Button sx={{ color: "#989898" }}>
         <ArrowForwardIosIcon />
-      </Box>
+      </Button>
     </Box>
   );
 }
