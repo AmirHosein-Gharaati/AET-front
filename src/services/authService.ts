@@ -8,7 +8,7 @@ import {
 } from "@/types/auth";
 
 class AuthService extends AxiosService {
-  url: string;
+  private url: string;
 
   constructor() {
     super();
