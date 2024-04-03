@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from "axios";
 import { AxiosService } from "./axiosService";
 import { UserResponse } from "@/types/home";
 
-class HomeService extends AxiosService {
+class AuthService extends AxiosService {
   url: string;
 
   constructor() {
@@ -21,4 +21,4 @@ class HomeService extends AxiosService {
   }
 }
 
-export const homeService = new HomeService();
+export const authService = new AuthService();

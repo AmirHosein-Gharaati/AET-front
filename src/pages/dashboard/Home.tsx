@@ -4,7 +4,7 @@ import { RootState } from "@/store/store";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { whoami } from "@/store/reducers/authReducer";
-import { homeService } from "@/services/homeService";
+import { authService } from "@/services/authService";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -18,7 +18,7 @@ export default function Home() {
       navigate("/login");
     }
 
-    homeService.whoami(token).then((res) => {
+    authService.whoami(token).then((res) => {
       const userResponse = res.data;
       if (userResponse) {
         dispatch(whoami(userResponse));
