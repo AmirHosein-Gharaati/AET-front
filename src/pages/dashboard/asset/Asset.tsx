@@ -4,11 +4,11 @@ import { Search } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { AssetFractionResponse } from "./assetTypes";
+import { AssetFractionResponse } from "@/types/asset";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
-import { getAssets } from "./assetService";
 import { PageHeader } from "@/components/PageHeader";
+import { assetService } from "@/services/asset/assetService";
 
 export default function Asset() {
   const navigate = useNavigate();
@@ -17,12 +17,9 @@ export default function Asset() {
   const [assets, setAssets] = useState<AssetFractionResponse[]>([]);
 
   useEffect(() => {
-    (async function handleGetAssets() {
-      const response = await getAssets(token);
-      if (response) {
-        setAssets(response);
-      }
-    })();
+    assetService.getAssets(token).then((res) => {
+      setAssets(res.data);
+    });
   }, [token]);
 
   function handleAddAsset() {
