@@ -1,5 +1,4 @@
 import { AssetFractionResponse } from "@/types/asset";
-import { AxiosRequestConfig } from "axios";
 import { AxiosService } from "./axiosService";
 
 class AssetService extends AxiosService {
@@ -11,11 +10,7 @@ class AssetService extends AxiosService {
   }
 
   getAssets(token: string) {
-    const config: AxiosRequestConfig = {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    };
+    const config = this.getAuthConfig(token);
 
     return this.axios.get<AssetFractionResponse[]>(this.url, config);
   }

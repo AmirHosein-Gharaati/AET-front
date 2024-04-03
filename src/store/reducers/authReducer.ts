@@ -1,7 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { LoginResponse } from "../../pages/login/loginTypes";
-import { SignUpResponse } from "../../pages/signup/signUpTypes";
-import { UserResponse } from "../../pages/dashboard/homeTypes";
+import { LoginResponse, SignUpResponse, UserResponse } from "@/types/auth";
 
 export const authSlice = createSlice({
   name: "authReducer",

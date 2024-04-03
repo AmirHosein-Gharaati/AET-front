@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosRequestConfig } from "axios";
 import { Axios } from "axios";
 
 export const baseURL = "http://localhost:8080/aet/v1";
@@ -8,9 +8,17 @@ export const axiosInstance = axios.create({
 });
 
 export class AxiosService {
-  axios: Axios;
+  protected axios: Axios;
 
   constructor() {
     this.axios = axiosInstance;
+  }
+
+  protected getAuthConfig(token: string): AxiosRequestConfig {
+    return {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    };
   }
 }

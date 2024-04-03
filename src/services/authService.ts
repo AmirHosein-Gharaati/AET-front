@@ -1,4 +1,3 @@
-import { AxiosRequestConfig } from "axios";
 import { AxiosService } from "./axiosService";
 import {
   LoginRequest,
@@ -17,11 +16,7 @@ class AuthService extends AxiosService {
   }
 
   whoami(token: string) {
-    const config: AxiosRequestConfig = {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    };
+    const config = this.getAuthConfig(token);
 
     return this.axios.get<UserResponse>(`${this.url}/whoami`, config);
   }
