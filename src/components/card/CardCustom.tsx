@@ -4,7 +4,7 @@ import ArrowDropUpIcon from "@mui/icons-material/ArrowDropUp";
 import ArrowDropDownIcon from "@mui/icons-material/ArrowDropDown";
 
 import { baseURL } from "@/utils/axios";
-import { calculateGainLossByPercent } from "./cardService";
+import { calculateGainLossByPercent } from "@/helper/cardHelper";
 import defaultCategoryImage from "@/assets/images/home-category.png";
 import { useNavigate } from "react-router-dom";
 
