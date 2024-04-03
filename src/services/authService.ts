@@ -1,13 +1,19 @@
 import { AxiosRequestConfig } from "axios";
 import { AxiosService } from "./axiosService";
-import { LoginRequest, LoginResponse, UserResponse } from "@/types/auth";
+import {
+  LoginRequest,
+  LoginResponse,
+  SignUpResponse,
+  SingUpRequest,
+  UserResponse,
+} from "@/types/auth";
 
 class AuthService extends AxiosService {
   url: string;
 
   constructor() {
     super();
-    this.url = "/auth/whoami";
+    this.url = "/auth";
   }
 
   whoami(token: string) {
@@ -17,11 +23,15 @@ class AuthService extends AxiosService {
       },
     };
 
-    return this.axios.get<UserResponse>(this.url, config);
+    return this.axios.get<UserResponse>(`${this.url}/whoami`, config);
   }
 
   login(data: LoginRequest) {
-    return this.axios.post<LoginResponse>(this.url, data);
+    return this.axios.post<LoginResponse>(`${this.url}/login`, data);
+  }
+
+  signup(data: SingUpRequest) {
+    return this.axios.post<SignUpResponse>(`${this.url}/signup`, data);
   }
 }
 

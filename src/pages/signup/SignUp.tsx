@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
-import { handleSignUp } from "./signUpService";
 import { TextField, Box, Typography, Grid, Button, Link } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { signUp } from "@/store/reducers/authReducer";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { authService } from "@/services/authService";
+import { SingUpRequest } from "@/types/auth";
 
 export default function SignUp() {
   const dispatch = useDispatch();
@@ -25,11 +26,19 @@ export default function SignUp() {
 
   async function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
-    const response = await handleSignUp(username, password, confirmPassword);
-    if (response) {
-      dispatch(signUp(response));
-      naviagte("/dashboard");
-    }
+
+    const data: SingUpRequest = {
+      username: username,
+      password: password,
+      confirmPassword: confirmPassword,
+    };
+
+    authService.signup(data).then((res) => {
+      if (res.data) {
+        dispatch(signUp(res.data));
+        naviagte("/dashboard");
+      }
+    });
   }
 
   return (
