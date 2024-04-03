@@ -39,7 +39,6 @@ export default function CardCustom(props: CardProps) {
 
   return (
     <Box
-      onClick={() => handleAssetDetail(props.id)}
       sx={{
         display: "flex",
         flexDirection: "row",
@@ -103,7 +102,10 @@ export default function CardCustom(props: CardProps) {
         </Box>
       </Box>
 
-      <Button sx={{ color: "#989898" }}>
+      <Button
+        onClick={() => handleAssetDetail(props.id)}
+        sx={{ color: "#989898" }}
+      >
         <ArrowForwardIosIcon />
       </Button>
     </Box>
