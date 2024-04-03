@@ -1,12 +1,7 @@
-import {
-  Box,
-  Button,
-  Container,
-  OutlinedInput,
-  Typography,
-} from "@mui/material";
+import { Box, Button, OutlinedInput, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import InputFileUpload from "@/components/InputFileUploadCustom";
+import { PageHeader } from "@/components/PageHeader";
 
 export default function AddAsset() {
   const navigate = useNavigate();
@@ -16,132 +11,128 @@ export default function AddAsset() {
   }
 
   return (
-    <Container>
-      <Box
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-        }}
-      >
-        <Typography component="h1" fontWeight={600} fontSize={28} marginY={2}>
-          Add Asset
-        </Typography>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <PageHeader title="Add Asset" backPath="/dashboard/asset" />
 
-        <InputFileUpload />
+      <InputFileUpload />
 
-        <Box>
-          <Box width="100%" marginY="12px">
-            <Typography display="flex">
-              Name{" "}
-              <Typography color="red" marginX="4px">
-                *
-              </Typography>
+      <Box>
+        <Box width="100%" marginY="12px">
+          <Typography display="flex">
+            Name{" "}
+            <Typography color="red" marginX="4px">
+              *
             </Typography>
+          </Typography>
 
-            <OutlinedInput
-              fullWidth
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "10px",
-              }}
-            />
-          </Box>
-
-          <Box width="100%" marginY="12px">
-            <Typography display="flex">
-              Current Price{" "}
-              <Typography color="red" marginX="4px">
-                *
-              </Typography>
-            </Typography>
-
-            <OutlinedInput
-              fullWidth
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "10px",
-              }}
-            />
-          </Box>
-
-          <Box display="flex" marginY="12px">
-            <Box width="100%">
-              <Typography display="flex">
-                Currency Buy{" "}
-                <Typography color="red" marginX="4px">
-                  *
-                </Typography>
-              </Typography>
-
-              <OutlinedInput
-                fullWidth
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: "10px",
-                }}
-              />
-            </Box>
-
-            <Box marginX="16px"></Box>
-
-            <Box width="100%">
-              <Typography display="flex">
-                Currency Sell{" "}
-                <Typography color="red" marginX="4px">
-                  *
-                </Typography>
-              </Typography>
-
-              <OutlinedInput
-                fullWidth
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: "10px",
-                }}
-              />
-            </Box>
-          </Box>
+          <OutlinedInput
+            fullWidth
+            sx={{
+              backgroundColor: "white",
+              borderRadius: "10px",
+            }}
+          />
         </Box>
 
-        <Box
-          marginY="32px"
-          width="100%"
-          display="flex"
-          justifyContent="space-between"
-        >
-          <Button
-            disableElevation
-            disableRipple
-            onClick={handleCancel}
-            sx={{
-              textTransform: "capitalize",
-              width: "160px",
-              height: "48px",
-              backgroundColor: "#E9E9E9",
-              color: "#51565B",
-              borderRadius: "30px",
-            }}
-          >
-            Cancel
-          </Button>
+        <Box width="100%" marginY="12px">
+          <Typography display="flex">
+            Current Price{" "}
+            <Typography color="red" marginX="4px">
+              *
+            </Typography>
+          </Typography>
 
-          <Button
-            variant="contained"
-            disableElevation
-            disableRipple
+          <OutlinedInput
+            fullWidth
             sx={{
-              textTransform: "capitalize",
-              width: "160px",
-              height: "48px",
-              backgroundColor: "#0065F2",
-              borderRadius: "30px",
+              backgroundColor: "white",
+              borderRadius: "10px",
             }}
-          >
-            Add
-          </Button>
+          />
+        </Box>
+
+        <Box display="flex" marginY="12px">
+          <Box width="100%">
+            <Typography display="flex">
+              Currency Buy{" "}
+              <Typography color="red" marginX="4px">
+                *
+              </Typography>
+            </Typography>
+
+            <OutlinedInput
+              fullWidth
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "10px",
+              }}
+            />
+          </Box>
+
+          <Box marginX="16px"></Box>
+
+          <Box width="100%">
+            <Typography display="flex">
+              Currency Sell{" "}
+              <Typography color="red" marginX="4px">
+                *
+              </Typography>
+            </Typography>
+
+            <OutlinedInput
+              fullWidth
+              sx={{
+                backgroundColor: "white",
+                borderRadius: "10px",
+              }}
+            />
+          </Box>
         </Box>
       </Box>
-    </Container>
+
+      <Box
+        marginY="32px"
+        width="100%"
+        display="flex"
+        justifyContent="space-between"
+      >
+        <Button
+          disableElevation
+          disableRipple
+          onClick={handleCancel}
+          sx={{
+            textTransform: "capitalize",
+            width: "160px",
+            height: "48px",
+            backgroundColor: "#E9E9E9",
+            color: "#51565B",
+            borderRadius: "30px",
+          }}
+        >
+          Cancel
+        </Button>
+
+        <Button
+          variant="contained"
+          disableElevation
+          disableRipple
+          sx={{
+            textTransform: "capitalize",
+            width: "160px",
+            height: "48px",
+            backgroundColor: "#0065F2",
+            borderRadius: "30px",
+          }}
+        >
+          Add
+        </Button>
+      </Box>
+    </Box>
   );
 }
