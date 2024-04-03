@@ -1,5 +1,5 @@
 import { Box, Fab, InputAdornment, OutlinedInput } from "@mui/material";
-import CardCustom from "@/components/card/CardCustom";
+import CardCustom from "@/components/CardCustom";
 import { Search } from "@mui/icons-material";
 import AddIcon from "@mui/icons-material/Add";
 import { useNavigate } from "react-router-dom";
