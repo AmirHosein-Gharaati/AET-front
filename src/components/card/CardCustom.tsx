@@ -94,7 +94,16 @@ export default function CardCustom(props: CardProps) {
           </Typography>
         </Box>
       </Box>
-      <Button startIcon={<ArrowForwardIosIcon />} />
+
+      <Box
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        color="#989898"
+        paddingX={2}
+      >
+        <ArrowForwardIosIcon />
+      </Box>
     </Box>
   );
 }
