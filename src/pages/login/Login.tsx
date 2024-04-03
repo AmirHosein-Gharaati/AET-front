@@ -2,9 +2,10 @@ import { Box, Button, Grid, Link, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { handleLogin } from "./loginService";
 import { login } from "@/store/reducers/authReducer";
 import { RootState } from "@/store/store";
+import { authService } from "@/services/authService";
+import { LoginRequest } from "@/types/auth";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -24,11 +25,17 @@ export default function Login() {
   async function handleFormSubmit(e: React.FormEvent) {
     e.preventDefault();
 
-    const response = await handleLogin(username, password);
-    if (response) {
-      dispatch(login(response));
-      naviagte("/dashboard");
-    }
+    const data: LoginRequest = {
+      username: username,
+      password: password,
+    };
+
+    authService.login(data).then((res) => {
+      if (res.data) {
+        dispatch(login(res.data));
+        naviagte("/dashboard");
+      }
+    });
   }
 
   return (

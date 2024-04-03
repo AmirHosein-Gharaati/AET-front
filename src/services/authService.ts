@@ -1,6 +1,6 @@
 import { AxiosRequestConfig } from "axios";
 import { AxiosService } from "./axiosService";
-import { UserResponse } from "@/types/home";
+import { LoginRequest, LoginResponse, UserResponse } from "@/types/auth";
 
 class AuthService extends AxiosService {
   url: string;
@@ -18,6 +18,10 @@ class AuthService extends AxiosService {
     };
 
     return this.axios.get<UserResponse>(this.url, config);
+  }
+
+  login(data: LoginRequest) {
+    return this.axios.post<LoginResponse>(this.url, data);
   }
 }
 
