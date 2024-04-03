@@ -8,7 +8,7 @@ import { AssetFractionResponse } from "@/types/asset";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { PageHeader } from "@/components/PageHeader";
-import { assetService } from "@/services/asset/assetService";
+import { assetService } from "@/services/assetService";
 
 export default function Asset() {
   const navigate = useNavigate();

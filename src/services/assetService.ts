@@ -1,7 +1,6 @@
 import { AssetFractionResponse } from "@/types/asset";
 import { AxiosRequestConfig } from "axios";
-import { axiosInstance as axios } from "@/utils/axios";
-import { AxiosService } from "../axiosService";
+import { AxiosService } from "./axiosService";
 
 class AssetService extends AxiosService {
   url: string;
@@ -18,7 +17,7 @@ class AssetService extends AxiosService {
       },
     };
 
-    return axios.get<AssetFractionResponse[]>(this.url, config);
+    return this.axios.get<AssetFractionResponse[]>(this.url, config);
   }
 }
 

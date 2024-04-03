@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { sendWhoami } from "./homeService";
 import { whoami } from "@/store/reducers/authReducer";
+import { homeService } from "@/services/homeService";
 
 export default function Home() {
   const navigate = useNavigate();
@@ -18,12 +18,12 @@ export default function Home() {
       navigate("/login");
     }
 
-    (async function handleWhoAmI() {
-      const userResponse = await sendWhoami(token);
+    homeService.whoami(token).then((res) => {
+      const userResponse = res.data;
       if (userResponse) {
         dispatch(whoami(userResponse));
       }
-    })();
+    });
   }, [token, navigate, dispatch]);
 
   return (
