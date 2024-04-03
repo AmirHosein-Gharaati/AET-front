@@ -24,12 +24,12 @@ export default function AddAsset() {
 
       <Box>
         <Box width="100%" marginY="12px">
-          <Typography display="flex">
-            Name{" "}
+          <Box display="flex">
+            <Typography display="flex">Name </Typography>
             <Typography color="red" marginX="4px">
               *
             </Typography>
-          </Typography>
+          </Box>
 
           <OutlinedInput
             fullWidth
@@ -41,12 +41,12 @@ export default function AddAsset() {
         </Box>
 
         <Box width="100%" marginY="12px">
-          <Typography display="flex">
-            Current Price{" "}
+          <Box display="flex">
+            <Typography display="flex">Current Price </Typography>
             <Typography color="red" marginX="4px">
               *
             </Typography>
-          </Typography>
+          </Box>
 
           <OutlinedInput
             fullWidth
@@ -59,12 +59,12 @@ export default function AddAsset() {
 
         <Box display="flex" marginY="12px">
           <Box width="100%">
-            <Typography display="flex">
-              Currency Buy{" "}
+            <Box display="flex">
+              <Typography display="flex">Currency Buy </Typography>
               <Typography color="red" marginX="4px">
                 *
               </Typography>
-            </Typography>
+            </Box>
 
             <OutlinedInput
               fullWidth
@@ -78,12 +78,12 @@ export default function AddAsset() {
           <Box marginX="16px"></Box>
 
           <Box width="100%">
-            <Typography display="flex">
-              Currency Sell{" "}
+            <Box display="flex">
+              <Typography display="flex">Currency Sell </Typography>
               <Typography color="red" marginX="4px">
                 *
               </Typography>
-            </Typography>
+            </Box>
 
             <OutlinedInput
               fullWidth
