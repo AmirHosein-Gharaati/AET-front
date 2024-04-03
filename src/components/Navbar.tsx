@@ -91,6 +91,7 @@ function NavbarButton(prop: NavbarButtonProp) {
   return (
     <Button
       onClick={prop.onClick}
+      fullWidth
       sx={{
         display: "flex",
         flexDirection: "column",
