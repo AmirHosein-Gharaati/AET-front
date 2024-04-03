@@ -1,6 +1,6 @@
 import MinimalLayout from "@/layouts/minimal/MinimalLayout";
 import SignUp from "@/pages/signup/SignUp";
-import { Login } from "@mui/icons-material";
+import Login from "@/pages/login/Login";
 import { RouteObject } from "react-router-dom";
 
 const loginRoutes: RouteObject = {
